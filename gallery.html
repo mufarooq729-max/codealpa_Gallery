@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luma Gallery | Moments in focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="cursor"></div>
+  <nav><a class="brand" href="#top"><span class="logo" aria-hidden="true"></span>Luma Gallery</a><button
+      class="take-photo" id="openCamera">◉ Take a photo</button></nav>
+  <header id="top"><span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
+    <div class="hero">
+      <div class="kicker">A collection of light &amp; life</div>
+      <h1>Image Gallery</h1>
+      <p>Small details. Big feelings. Explore a hand-picked collection of scenes, faces, flavours and places — then add
+        a moment of your own.</p>
+    </div>
+  </header>
+  <main>
+    <section class="gallery-top"><strong>Explore the collection</strong>
+      <div class="filters" id="filters"></div>
+    </section>
+    <div class="masonry" id="gallery"></div>
+  </main>
+  <div class="modal" id="preview">
+    <div class="lightbox"><button class="close" data-close="preview">×</button><img id="previewImage" src="" alt="">
+      <p id="previewTitle"></p>
+    </div>
+  </div>
+  <div class="modal" id="camera">
+    <div class="camera-card"><button class="close" data-close="camera">×</button>
+      <h2>Capture your moment</h2>
+      <p>Frame it, snap it, and it will appear at the start of your gallery.</p><video id="video" autoplay playsinline
+        muted></video><canvas id="canvas"></canvas>
+      <div class="camera-actions"><button id="capture">Capture</button><button class="secondary" id="addPhoto"
+          hidden>Add to gallery</button><button class="secondary" data-close="camera">Close</button></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

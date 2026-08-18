@@ -1,0 +1,515 @@
+ :root {
+      --ink: #16130b;
+      --paper: #fffdf4;
+      --muted: #716a55;
+      --violet: #d88900;
+      --pink: #ffc400;
+      --aqua: #ffe9a1;
+      --line: #f0dfab
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Outfit, Arial, sans-serif;
+      overflow-x: hidden
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 8% 16%, #ffe49b90, transparent 22rem), radial-gradient(circle at 92% 8%, #fff1b880, transparent 22rem);
+      z-index: -1
+    }
+
+    .cursor {
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid var(--violet);
+      border-radius: 50%;
+      position: fixed;
+      z-index: 50;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s, background .2s;
+      mix-blend-mode: multiply
+    }
+
+    .cursor.big {
+      width: 54px;
+      height: 54px;
+      background: #7657ff20
+    }
+
+    nav {
+      height: 82px;
+      padding: 0 clamp(22px, 6vw, 90px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ffffff90;
+      background: #fffdf9b8;
+      backdrop-filter: blur(16px);
+      position: relative;
+      z-index: 2
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.04em
+    }
+
+    .logo {
+      width: 35px;
+      height: 35px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      display: grid;
+      place-items: center;
+      box-shadow: 4px 5px 0 #dcd5ff
+    }
+
+    .logo:before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #ffffff70
+    }
+
+    .take-photo,
+    .filter {
+      border: 0;
+      font: 500 13px 'DM Mono', monospace;
+      cursor: pointer
+    }
+
+    .take-photo {
+      padding: 12px 17px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      box-shadow: 0 7px 18px #11111a26;
+      transition: transform .25s, background .25s
+    }
+
+    .take-photo:hover {
+      transform: translateY(-3px);
+      background: var(--violet)
+    }
+
+    header {
+      min-height: 400px;
+      padding: 74px 20px 54px;
+      text-align: center;
+      display: grid;
+      place-items: center;
+      position: relative
+    }
+
+    .hero {
+      max-width: 800px
+    }
+
+    .kicker {
+      font: 500 11px 'DM Mono', monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 15px
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: .91;
+      letter-spacing: -.075em;
+      margin: 0;
+      background: linear-gradient(100deg, var(--ink) 18%, var(--violet) 48%, var(--pink) 72%, var(--aqua));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p {
+      max-width: 550px;
+      margin: 23px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65
+    }
+
+    .spark {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(.2px);
+      opacity: .75
+    }
+
+    .s1 {
+      width: 16px;
+      height: 16px;
+      background: var(--pink);
+      left: 13%;
+      top: 24%
+    }
+
+    .s2 {
+      width: 25px;
+      height: 25px;
+      background: var(--aqua);
+      right: 14%;
+      bottom: 27%
+    }
+
+    .s3 {
+      width: 9px;
+      height: 9px;
+      background: var(--violet);
+      right: 26%;
+      top: 19%
+    }
+
+    main {
+      padding: 0 clamp(22px, 6vw, 90px) 80px
+    }
+
+    .gallery-top {
+      border-top: 1px solid var(--line);
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .gallery-top strong {
+      font-size: 18px
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .filter {
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: transparent;
+      transition: .2s
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: #ece8ff;
+      color: var(--violet)
+    }
+
+    .masonry {
+      columns: 4 230px;
+      column-gap: 18px
+    }
+
+    .card {
+      break-inside: avoid;
+      position: relative;
+      margin: 0 0 18px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #ddd;
+      border: 1px solid transparent;
+      box-shadow: 0 8px 24px #29213e0c;
+      cursor: pointer;
+      transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transition: transform .25s ease, box-shadow .25s, border-color .25s
+    }
+
+    .card:hover {
+      border-color: #9b89ff;
+      box-shadow: 0 22px 38px #4837972b
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      transition: transform .5s ease;
+      min-height: 180px;
+      object-fit: cover
+    }
+
+    .card:hover img {
+      transform: scale(1.08)
+    }
+
+    .caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 34px 14px 13px;
+      color: white;
+      background: linear-gradient(transparent, rgba(12, 10, 22, .8));
+      opacity: 0;
+      transform: translateY(7px);
+      transition: .25s
+    }
+
+    .card:hover .caption {
+      opacity: 1;
+      transform: none
+    }
+
+    .caption small {
+      font: 400 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #c9c1ff
+    }
+
+    .caption b {
+      display: block;
+      margin-top: 3px;
+      font-size: 15px
+    }
+
+    .tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #fffdf9dd;
+      border-radius: 999px;
+      padding: 5px 8px;
+      color: var(--ink);
+      font: 500 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      opacity: 0;
+      transition: .25s
+    }
+
+    .card:hover .tag {
+      opacity: 1
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: #11111ad9;
+      backdrop-filter: blur(10px);
+      display: none;
+      place-items: center;
+      z-index: 20;
+      padding: 24px
+    }
+
+    .modal.open {
+      display: grid
+    }
+
+    .lightbox {
+      max-width: min(900px, 94vw);
+      max-height: 90vh;
+      position: relative;
+      text-align: center
+    }
+
+    .lightbox>img {
+      max-width: 100%;
+      max-height: 74vh;
+      border-radius: 15px;
+      display: block
+    }
+
+    .lightbox p {
+      color: white;
+      margin: 12px 0;
+      font-size: 15px
+    }
+
+    .close {
+      position: absolute;
+      right: 0;
+      top: -47px;
+      color: white;
+      background: transparent;
+      border: 0;
+      font-size: 28px;
+      cursor: pointer
+    }
+
+    .camera-card {
+      width: min(540px, 94vw);
+      background: white;
+      border-radius: 22px;
+      padding: 24px
+    }
+
+    .camera-card h2 {
+      margin: 0 0 5px
+    }
+
+    .camera-card p {
+      color: var(--muted);
+      margin: 0 0 16px
+    }
+
+    .camera-card video,
+    .camera-card canvas {
+      width: 100%;
+      border-radius: 14px;
+      background: #181722;
+      aspect-ratio: 4/3;
+      object-fit: cover
+    }
+
+    .camera-card canvas {
+      display: none
+    }
+
+    .camera-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .camera-actions button {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: var(--violet);
+      color: white;
+      font: 500 13px 'DM Mono', monospace;
+      cursor: pointer
+    }
+
+    .camera-actions .secondary {
+      background: #ece8ff;
+      color: var(--violet)
+    }
+
+    .card:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      background: linear-gradient(115deg, #ffdb4d, #fff9d4, #d88900, #ffdb4d) border-box;
+      background-size: 300% 100%;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .card:hover:after {
+      opacity: 1;
+      animation: borderGlow 1.5s linear infinite
+    }
+
+    @keyframes borderGlow {
+      to {
+        background-position: 300% 0
+      }
+    }
+
+    .card:hover {
+      border-color: #ffc400;
+      box-shadow: 0 22px 38px #c790002e
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: #fff0bd;
+      color: #a16b00
+    }
+
+    .photo-actions {
+      display: flex;
+      justify-content: center;
+      gap: 9px
+    }
+
+    .photo-actions button {
+      border: 1px solid #ffffff40;
+      color: #fff;
+      background: #ffffff18;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font: 500 12px 'DM Mono', monospace;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .photo-actions button:hover {
+      background: #ffc400;
+      color: var(--ink);
+      border-color: #ffc400
+    }
+
+    .photo-actions .delete:hover {
+      background: #e95252;
+      color: #fff;
+      border-color: #e95252
+    }
+
+    @media(max-width:600px) {
+      .cursor {
+        display: none
+      }
+
+      header {
+        min-height: 350px;
+        padding-top: 54px
+      }
+
+      .gallery-top {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .masonry {
+        columns: 2 145px;
+        column-gap: 11px
+      }
+
+      .card {
+        margin-bottom: 11px
+      }
+
+      .caption {
+        opacity: 1;
+        transform: none;
+        padding: 25px 10px 10px
+      }
+
+      .tag {
+        opacity: 1;
+        top: 8px;
+        left: 8px
+      }
+
+      .hero p {
+        font-size: 15px
+      }
+    }
